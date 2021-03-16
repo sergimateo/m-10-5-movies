@@ -7,7 +7,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'SearchBar'
+}
 </script>
 
 <style scoped>
