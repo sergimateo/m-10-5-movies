@@ -1,17 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import movies from './modules/movies.js'
-import allMovies from './../assets/movieList.json'
+import moviesModule from './../modules/movies.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    allMovies: allMovies
+    filters: {
+      search: '',
+      available: false
+    }
   },
-  mutations: {},
-  actions: {},
+  getters: {
+    GetAvailable(state) {
+      state.filters.available = !state.filters.available
+    },
+    GetSearch(state, value) {
+      state.filters.search = value
+    }
+  },
+  // mutations: {},
+  // actions: {},
   modules: {
-    movies
+    moviesModule
   }
 })
