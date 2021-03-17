@@ -1,12 +1,24 @@
 <template>
   <div>
-    <input type="text" class="search-box" placeholder="Holi... busca tu peli" />
+    <input
+      type="text"
+      class="search-box"
+      v-model="searchText"
+      placeholder="Holi... busca tu peli"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SearchBar'
+  name: 'SearchBar',
+  computed: {
+    // searchText(): {
+    //   get(){
+    //      return this.$store.state.filters.search
+    //   }
+    // }
+  }
   // computed: {
   //   search(){
   //     get() =>

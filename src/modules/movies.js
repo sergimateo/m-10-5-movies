@@ -9,6 +9,9 @@ const movies = {
     // allMovies: state => state.movies
     allMovies: state => {
       return state.movies
+    },
+    filteredMovies: state => {
+      return state.movies.filter(movie => movie.available === true)
     }
   },
 

@@ -10,8 +10,6 @@
     <div class="header">
       <SearchBar />
       <FilterItems />
-      <!-- <SearchBar />
-      <FilterItems /> -->
     </div>
     <AvailableRadioButtons />
     <Movies />
