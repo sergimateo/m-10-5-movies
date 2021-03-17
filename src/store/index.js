@@ -4,7 +4,7 @@ import moviesModule from './../modules/movies.js'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     filters: {
       search: '',
@@ -15,7 +15,7 @@ export default new Vuex.Store({
     GetAvailable(state) {
       state.filters.available = !state.filters.available
     },
-    GetSearch(state, value) {
+    GetSearchedMovies(state, value) {
       state.filters.search = value
     }
   },
@@ -25,3 +25,5 @@ export default new Vuex.Store({
     moviesModule
   }
 })
+
+export default store

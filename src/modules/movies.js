@@ -2,16 +2,14 @@ import movieList from './../assets/movieList.json'
 
 const movies = {
   namespaced: true,
-
   state: {
     movies: movieList
   },
-
   getters: {
-    allMovies: state => state.movies
-    // allMovies: state => {
-    //   return state.movies
-    // }
+    // allMovies: state => state.movies
+    allMovies: state => {
+      return state.movies
+    }
   },
 
   actions: {},

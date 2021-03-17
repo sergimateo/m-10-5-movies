@@ -27,11 +27,9 @@ export default {
 
 .search-box {
   width: min(95%, 95vw);
-  /* display: flex; */
-  /* grid-template-columns: 1fr;
-  grid-gap: 1rem; */
-  border: 1px solid rgb(167, 78, 78);
-  /* background: #8fa3ce; */
+
+  border: 1px solid rgb(187, 255, 179);
+  background: #c4f7d7;
   padding: 0.4rem;
   border-radius: 5px;
   /* text-align: center; */
