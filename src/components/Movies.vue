@@ -13,7 +13,9 @@
         </div>
       </div>
     </div>
-    <div v-else class="holi">Holi</div>
+    <div v-else class="alert-banner">
+      Oops, didn't find a movie title that matches your search
+    </div>
   </div>
 </template>
 

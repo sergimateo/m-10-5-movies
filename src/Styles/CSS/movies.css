@@ -1,5 +1,11 @@
-.holi {
-  color: aqua;
+.alert-banner {
+  color: #30351f;
+  background-color: #f5de14;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .movies {

@@ -5,6 +5,7 @@
   text-align: center;
   background-color: #020e02;
   padding: 0.5rem;
+  overflow-y: hidden;
 }
 
 .banner {
@@ -23,6 +24,7 @@ body {
   padding: 0;
   border: 0;
   font-size: 100%;
+  background-color: #020e02;
   font: inherit;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
@@ -40,19 +42,12 @@ body {
 .header {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 1fr;
-      grid-template-columns: 3fr 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   grid-gap: 1rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 1rem 0;
-}
-
-@media (max-width: 750px) {
-  .header {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-  }
 }
 /*# sourceMappingURL=app.css.map */

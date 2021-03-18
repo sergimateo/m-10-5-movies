@@ -62,8 +62,5 @@ export default {
 .colored-search {
   color: rgb(147, 177, 64);
   font-weight: bold;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 1rem;
 }
 </style>

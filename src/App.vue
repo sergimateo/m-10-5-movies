@@ -5,10 +5,10 @@
     <!-- <div class="title">Movie Record</div> -->
     <div class="header">
       <SearchBar />
-      <FilterItems />
+      <AvailableRadioButtons />
+      <!-- <FilterItems /> -->
     </div>
     <div class="items-box">
-      <AvailableRadioButtons />
       <Movies />
     </div>
   </div>
@@ -16,7 +16,7 @@
 
 <script>
 import AvailableRadioButtons from './components/AvailableRadioButtons.vue'
-import FilterItems from './components/FilterItems.vue'
+// import FilterItems from './components/FilterItems.vue'
 import Movies from './components/Movies.vue'
 import SearchBar from './components/SearchBar.vue'
 
@@ -25,7 +25,7 @@ export default {
 
   components: {
     AvailableRadioButtons,
-    FilterItems,
+    // FilterItems,
     Movies,
     SearchBar
   }

@@ -10,6 +10,7 @@
   //   margin-top: 30px;
   padding: 0.5rem;
   //   height: 100vh;
+  overflow-y: hidden;
 }
 
 .banner {
@@ -32,6 +33,7 @@ body {
   padding: 0;
   border: 0;
   font-size: 100%;
+  background-color: #020e02;
   font: inherit;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
@@ -44,16 +46,16 @@ body {
 }
 .header {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
   align-items: center;
   padding: 1rem 0;
 }
-@media (max-width: 750px) {
-  .header {
-    grid-template-columns: 1fr;
-  }
-}
+// @media all and (min-width: 900px) {
+//   .header {
+//     grid-template-columns: 3fr 1fr;
+//   }
+// }
 
 // .search-bar {
 //   position: relative;

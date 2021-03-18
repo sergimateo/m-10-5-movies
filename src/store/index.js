@@ -23,6 +23,11 @@ const store = new Vuex.Store({
       if (state.filters.available === '') {
         return state.searchedMovies
       } else {
+        // if (state.searchedMovies.length === 0) {
+        //   state.filters.emptySearch = true
+        // } else {
+        //   state.filters.emptySearch = false
+        // }
         return state.searchedMovies.filter(
           movie => movie.available === state.filters.available
         )
@@ -43,6 +48,11 @@ const store = new Vuex.Store({
   mutations: {
     setAvailable(state, value) {
       state.filters.available = value
+      if (state.searchedMovies.length === 0) {
+        state.filters.emptySearch = true
+      } else {
+        state.filters.emptySearch = false
+      }
       // state.filters.available = !state.filters.available
     },
     setSearchofMovies(state, value) {
