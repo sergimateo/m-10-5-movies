@@ -18,17 +18,20 @@ export default {
     //      return this.$store.state.filters.search
     //   }
     // }
+    // }
+    // //  v-model="searchText"
+    // computed: {
+    searchText: {
+      get() {
+        return this.$store.state.filters.search
+      },
+      set(value) {
+        this.$store.commit('setSearchofMovies', value)
+      }
+      //   }
+      // }
+    }
   }
-  // computed: {
-  //   search(){
-  //     get() =>
-  //       return $state.filters.search
-
-  //     set(value){
-  //       $state.filter.search = value
-  //     };
-  //   }
-  // }
 }
 </script>
 

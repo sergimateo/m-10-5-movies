@@ -1,26 +1,10 @@
-import movieList from './../assets/movieList.json'
+// import movieList from './../assets/movieList.json'
 
-const movies = {
-  namespaced: true,
-  state: {
-    movies: movieList
-  },
-  getters: {
-    // allMovies: state => state.movies
-    allMovies: state => {
-      return state.movies
-    },
-    filteredMovies: state => {
-      return state.movies.filter(movie => movie.available === true)
-    }
-  },
+// const movies = {
 
-  actions: {},
+// }
 
-  mutations: {}
-}
-
-export default movies
+// export default movies
 // {
 // state,
 // getters,

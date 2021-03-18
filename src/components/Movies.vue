@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="movies">
-      <div v-for="movie in filteredMovies" :key="movie.id" class="movie">
+      <div v-for="movie in showMovies" :key="movie.id" class="movie">
         <div class="movie-header">
           <p class="movie-title">{{ movie.title }}</p>
 
@@ -21,7 +21,7 @@ import Vuex from 'vuex'
 export default {
   name: 'Movies',
   computed: {
-    ...Vuex.mapGetters({ filteredMovies: 'moviesModule/filteredMovies' })
+    ...Vuex.mapGetters({ showMovies: 'filteredMovies' })
   }
 }
 </script>
