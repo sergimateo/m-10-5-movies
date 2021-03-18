@@ -8,6 +8,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     movies: movieList,
+    searchedMovies: movieList,
     filters: {
       search: '',
       available: ''
@@ -21,34 +22,10 @@ const store = new Vuex.Store({
       if (state.filters.available === '') {
         return state.movies
       } else {
-        return state.movies.filter(
+        return state.searchedMovies.filter(
           movie => movie.available === state.filters.available
         )
       }
-      // if (state.filters.available === '1') {
-      //   return state.movies
-      // } else if (state.filters.available === '2') {
-      //   return state.movies.filter(movie => movie.available === true)
-      // } else if (state.filters.available === '3') {
-      //   return state.movies.filter(movie => movie.available === false)
-      // }
-      // switch (state.filters.available) {
-      //   case true:
-      //     state.movies.filter(movie => movie.available === true)
-      //     break
-
-      //   case false:
-      //     state.movies.filter(movie => movie.available === false)
-      //     break
-
-      //   // case 'showAll':
-
-      //   //   break
-
-      //   default:
-      //     state.movies.filter(movie => movie)
-      //     break
-      // }
     },
     getSearchofMovies: state => {
       return state.filters.search
@@ -63,7 +40,20 @@ const store = new Vuex.Store({
     },
     setSearchofMovies(state, value) {
       state.filters.search = value
+      if (state.filters.search === '') {
+        state.searchedMovies = state.movies
+      } else {
+        state.searchedMovies = state.movies.filter(movie =>
+          movie.title.toLowerCase().includes(state.filters.search.toLowerCase())
+        )
+      }
     }
+    // if (state.searchedMovies.length === 0) {
+    //     state.notFound = true
+    // } else {
+    //     state.notFound = false
+    // }
+    //     }
   },
   // actions: {},
   modules: {
@@ -75,3 +65,28 @@ const store = new Vuex.Store({
 })
 
 export default store
+
+// if (state.filters.available === '1') {
+//   return state.movies
+// } else if (state.filters.available === '2') {
+//   return state.movies.filter(movie => movie.available === true)
+// } else if (state.filters.available === '3') {
+//   return state.movies.filter(movie => movie.available === false)
+// }
+// switch (state.filters.available) {
+//   case true:
+//     state.movies.filter(movie => movie.available === true)
+//     break
+
+//   case false:
+//     state.movies.filter(movie => movie.available === false)
+//     break
+
+//   // case 'showAll':
+
+//   //   break
+
+//   default:
+//     state.movies.filter(movie => movie)
+//     break
+// }
