@@ -7,9 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     movies: movieList,
-
     searchedMovies: movieList,
-
     filters: {
       search: '',
       available: 1,
