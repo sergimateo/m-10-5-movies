@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="movies">
+  <div class="movies-display">
+    <div v-if="!emptySearch" class="movies">
       <div v-for="movie in showMovies" :key="movie.id" class="movie">
         <div class="movie-header">
           <p class="movie-title">{{ movie.title }}</p>
@@ -13,6 +13,7 @@
         </div>
       </div>
     </div>
+    <div v-else class="holi">Holi</div>
   </div>
 </template>
 
@@ -21,9 +22,13 @@ import Vuex from 'vuex'
 export default {
   name: 'Movies',
   computed: {
-    ...Vuex.mapGetters({ showMovies: 'filteredMovies' })
+    ...Vuex.mapGetters({
+      showMovies: 'filteredMovies',
+      emptySearch: 'getEmptySearch'
+    })
   }
 }
+// }
 </script>
 
 <style src="./../Styles/CSS/movies.css" scoped></style>

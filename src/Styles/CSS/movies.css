@@ -1,3 +1,7 @@
+.holi {
+  color: aqua;
+}
+
 .movies {
   display: -ms-grid;
   display: grid;

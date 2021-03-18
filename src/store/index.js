@@ -11,7 +11,8 @@ const store = new Vuex.Store({
     searchedMovies: movieList,
     filters: {
       search: '',
-      available: ''
+      available: '',
+      emptySearch: false
     }
   },
   getters: {
@@ -20,7 +21,7 @@ const store = new Vuex.Store({
     },
     filteredMovies: state => {
       if (state.filters.available === '') {
-        return state.movies
+        return state.searchedMovies
       } else {
         return state.searchedMovies.filter(
           movie => movie.available === state.filters.available
@@ -29,9 +30,15 @@ const store = new Vuex.Store({
     },
     getSearchofMovies: state => {
       return state.filters.search
+    },
+    getEmptySearch: state => {
+      return state.filters.emptySearch
+      // if (state.searchedMovies.length === 0) {
+      //   state.filters.emptySearch = true
+      // } else {
+      //   state.filters.emptySearch = false
+      // }
     }
-    //   state.filters.search = value
-    // }
   },
   mutations: {
     setAvailable(state, value) {
@@ -40,20 +47,20 @@ const store = new Vuex.Store({
     },
     setSearchofMovies(state, value) {
       state.filters.search = value
-      if (state.filters.search === '') {
+
+      if (state.filters.search === '' || state.filters.search.length < 3) {
         state.searchedMovies = state.movies
       } else {
         state.searchedMovies = state.movies.filter(movie =>
           movie.title.toLowerCase().includes(state.filters.search.toLowerCase())
         )
       }
+      if (state.searchedMovies.length === 0) {
+        state.filters.emptySearch = true
+      } else {
+        state.filters.emptySearch = false
+      }
     }
-    // if (state.searchedMovies.length === 0) {
-    //     state.notFound = true
-    // } else {
-    //     state.notFound = false
-    // }
-    //     }
   },
   // actions: {},
   modules: {
