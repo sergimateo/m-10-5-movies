@@ -1,0 +1,53 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: #020e02;
+  padding: 0.5rem;
+  overflow-y: hidden;
+}
+
+.banner {
+  grid-area: banner;
+  background-image: url("./../../assets/480852153_1280x720_op02.jpg");
+  height: 0;
+  padding-top: 9.2%;
+  padding-bottom: 9.2%;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  background-color: #020e02;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+.item-box {
+  height: 100%;
+}
+
+.header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,71 @@
+.alert-banner {
+  color: rgb(48, 53, 31);
+  background-color: rgb(245, 222, 20);
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding-top: 1rem;
+
+  padding-bottom: 1rem;
+}
+
+// .movies-display {
+//   // overflow-y: auto;
+//   padding-right: 1vw;
+// }
+.movies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  // height: 100vh;
+}
+
+.movie {
+  border: 1px solid rgb(106, 221, 96);
+  /* background: #aae688; */
+  /* padding: 1rem; */
+  display: grid;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.movie-header {
+  margin: 0;
+  align-self: stretch;
+  display: grid;
+}
+.movie-title {
+  background: #81b166;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.3rem;
+  /* justify-self: stretch; */
+}
+
+.movie-available {
+  background: #81b166;
+  font-size: 0.7rem;
+  margin: 0;
+  padding: 0.3rem;
+}
+.movie-description {
+  background: #ace28c;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0.3rem;
+  align-self: stretch;
+}
+@media (max-width: 750px) {
+  .movies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .movies {
+    grid-template-columns: 1fr;
+  }
+}
