@@ -7,9 +7,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     movies: movieList,
-    holi: '',
+
     searchedMovies: movieList,
-    // filteredMovies: movieList,
+
     filters: {
       search: '',
       available: 1,
@@ -17,20 +17,8 @@ const store = new Vuex.Store({
     }
   },
   getters: {
-    // allMovies: state => {
-    //   return state.movies
-    // },
     filteredMovies: state => {
-      // // state.searchedMovies = state.filteredMovies
-
-      // if (state.filters.available === 1) {
       return state.searchedMovies
-      // } else {
-      //   // acabo de ver un bug, que si tengo 1 peli en available y cambio a not available, no aperece el alert bannner de no hay pelis...
-      //   return state.searchedMovies.filter(
-      //     movie => movie.available === state.filters.available
-      //   )
-      // }
     },
     getSearchofMovies: state => {
       return state.filters.search
@@ -46,16 +34,15 @@ const store = new Vuex.Store({
         state.filters.emptySearch = true
       } else if (state.filters.available === 1) {
         state.filters.emptySearch = false
-        state.holi = 'holi1'
+
         state.searchedMovies = state.movies.filter(movie =>
           movie.title.toLowerCase().includes(state.filters.search.toLowerCase())
         )
-        // state.holi = 'holi'
       } else {
         state.filters.emptySearch = false
-        state.holi = 'holii a'
+
         // acabo de ver un bug, que si tengo 1 peli en available y cambio a not available, no aperece el alert bannner de no hay pelis...
-        //  (state.filters.search === '' || state.filters.search.length < 3) {
+
         state.searchedMovies = state.movies
           .filter(movie =>
             movie.title
@@ -63,26 +50,7 @@ const store = new Vuex.Store({
               .includes(state.filters.search.toLowerCase())
           )
           .filter(movie => movie.available === state.filters.available)
-
-        // if (state.filters.available === 1) {
-        //   return state.filteredMovies
-        // } else {
-        //   // acabo de ver un bug, que si tengo 1 peli en available y cambio a not available, no aperece el alert bannner de no hay pelis...
-        //   return state.filteredMovies.filter(
-        //     movie => movie.available === state.filters.available
-        //   )
       }
-      // }
-
-      // if (state.searchedMovies.length === 0) {
-      //   state.filters.emptySearch = true
-      // } else {
-      //   state.filters.emptySearch = false
-      // }
-
-      // no entendí el toggle comentado aqui abajo, no lo he usado.
-      // he usado el if-else de arriba
-      // state.filters.available = !state.filters.available
     },
     setSearchofMovies(state, value) {
       state.filters.search = value
