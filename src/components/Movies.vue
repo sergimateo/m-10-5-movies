@@ -14,7 +14,7 @@
       </div>
     </div>
     <div v-else class="alert-banner">
-      Oops, didn't find a movie title that matches your search
+      Oops, no movie title matches your search
     </div>
   </div>
 </template>
@@ -30,7 +30,6 @@ export default {
     })
   }
 }
-// }
 </script>
 
 <style src="./../Styles/CSS/movies.css" scoped></style>

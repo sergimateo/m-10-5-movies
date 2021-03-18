@@ -4,7 +4,7 @@
       type="text"
       class="search-box"
       v-model="searchText"
-      placeholder="Holi... busca tu peli"
+      placeholder="Search for a movie title"
     />
   </div>
 </template>
@@ -13,14 +13,6 @@
 export default {
   name: 'SearchBar',
   computed: {
-    // searchText(): {
-    //   get(){
-    //      return this.$store.state.filters.search
-    //   }
-    // }
-    // }
-    // //  v-model="searchText"
-    // computed: {
     searchText: {
       get() {
         return this.$store.state.filters.search
@@ -28,8 +20,6 @@ export default {
       set(value) {
         this.$store.commit('setSearchofMovies', value)
       }
-      //   }
-      // }
     }
   }
 }
@@ -42,12 +32,10 @@ export default {
 
 .search-box {
   width: min(95%, 95vw);
-
+  font-size: 1rem;
   border: 1px solid rgb(187, 255, 179);
+  border-radius: 5px;
   background: #c4f7d7;
   padding: 0.4rem;
-  border-radius: 5px;
-  /* text-align: center; */
-  /* position: relative; */
 }
 </style>

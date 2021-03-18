@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="colored-search">
-      <!-- <input
+      <input
         type="radio"
         id="radio0"
         name="available"
@@ -9,7 +9,7 @@
         checked="checked"
         :value="1"
       />
-      <label for="radio0">Show All</label> -->
+      <label for="radio0">Show All</label>
       <input
         type="radio"
         id="radio1"
@@ -35,7 +35,6 @@
 export default {
   name: 'AvailableRadioButtons',
   computed: {
-    // isAvailable:
     isAvailable: {
       get() {
         return this.$store.state.filters.available
@@ -45,16 +44,6 @@ export default {
       }
     }
   }
-  // computed: {
-  //   search(){
-  //     get(){
-  //       return $state.filters.search
-  //     },
-  //     set(value){
-  //       $state.filter.search = value
-  //     }
-  //   }
-  // }
 }
 </script>
 

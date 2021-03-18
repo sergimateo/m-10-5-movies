@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import moviesModule from './../modules/movies.js'
 import movieList from './../assets/movieList.json'
 
 Vue.use(Vuex)
@@ -11,7 +10,7 @@ const store = new Vuex.Store({
     searchedMovies: movieList,
     filters: {
       search: '',
-      available: '',
+      available: 1,
       emptySearch: false
     }
   },
@@ -20,14 +19,10 @@ const store = new Vuex.Store({
       return state.movies
     },
     filteredMovies: state => {
-      if (state.filters.available === '') {
+      if (state.filters.available === 1) {
         return state.searchedMovies
       } else {
-        // if (state.searchedMovies.length === 0) {
-        //   state.filters.emptySearch = true
-        // } else {
-        //   state.filters.emptySearch = false
-        // }
+        // acabo de ver un bug, que si tengo 1 peli en available y cambio a not available, no aperece el alert bannner de no hay pelis...
         return state.searchedMovies.filter(
           movie => movie.available === state.filters.available
         )
@@ -38,11 +33,6 @@ const store = new Vuex.Store({
     },
     getEmptySearch: state => {
       return state.filters.emptySearch
-      // if (state.searchedMovies.length === 0) {
-      //   state.filters.emptySearch = true
-      // } else {
-      //   state.filters.emptySearch = false
-      // }
     }
   },
   mutations: {
@@ -53,6 +43,13 @@ const store = new Vuex.Store({
       } else {
         state.filters.emptySearch = false
       }
+      if (state.searchedMovies.length === 0) {
+        state.filters.emptySearch = true
+      } else {
+        state.filters.emptySearch = false
+      }
+      // no entendí el toggle comentado aqui abajo, no lo he usado.
+      // he usado el if-else de arriba
       // state.filters.available = !state.filters.available
     },
     setSearchofMovies(state, value) {
@@ -72,38 +69,13 @@ const store = new Vuex.Store({
       }
     }
   },
-  // actions: {},
+
+  actions: {},
   modules: {
+    // modulo de movies store cancelado, me liaba...
     // moviesModule
   },
-  namespaced: true,
-
-  actions: {}
+  namespaced: true
 })
 
 export default store
-
-// if (state.filters.available === '1') {
-//   return state.movies
-// } else if (state.filters.available === '2') {
-//   return state.movies.filter(movie => movie.available === true)
-// } else if (state.filters.available === '3') {
-//   return state.movies.filter(movie => movie.available === false)
-// }
-// switch (state.filters.available) {
-//   case true:
-//     state.movies.filter(movie => movie.available === true)
-//     break
-
-//   case false:
-//     state.movies.filter(movie => movie.available === false)
-//     break
-
-//   // case 'showAll':
-
-//   //   break
-
-//   default:
-//     state.movies.filter(movie => movie)
-//     break
-// }
