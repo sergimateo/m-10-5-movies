@@ -116,6 +116,7 @@ const store = new Vuex.Store({
   actions: {},
   modules: {
     // modulo de movies store cancelado, me liaba...
+    //para hacer un dummy commit en master
     // moviesModule
   },
   namespaced: true
