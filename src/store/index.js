@@ -16,10 +16,53 @@ const store = new Vuex.Store({
   },
   getters: {
     filteredMovies: state => {
+      state.filters.emptySearch = false
+      // No me llama la atencion meter el filtraje de las pelis mediante la
+      // cadena de if-elses en el getter.
+      //
+      // Pretendía que los dos componentes AvailableRadioButtons y SearchBar
+      // fueran modulares e independientes, y que su funcionalidad
+      // fuera por separado, pudiendo hacer un componente como el "cajon movies"
+      // para presentar los resultados de las busquedas y que
+      // pudiera tener o los aradio buttons o la barra de busqueda
+      // o ambos a la vez, sin tener que manupular el codigo en este getter
+      //
+      // Pero bueno, ahora así ya funciona todo bien, no veo bugs
+      //
+      //
+      // Si el radiobtn es show all: search < 3 ponemos todas las pelis,
+      // si no todas con filtro search
+      if (state.filters.available === 1) {
+        if (state.filters.search.length < 3) {
+          state.searchedMovies = state.movies
+        } else {
+          state.searchedMovies = state.movies.filter(movie =>
+            movie.title
+              .toLowerCase()
+              .includes(state.filters.search.toLowerCase())
+          )
+        }
+        // si no, aplica el filtro available siempre.
+        // Y ponemos el filtro de search si lenght >= 3
+      } else if (state.filters.search.length < 3) {
+        //
+        state.searchedMovies = state.movies.filter(
+          movie => movie.available === state.filters.available
+        )
+      } else {
+        state.searchedMovies = state.movies
+          .filter(movie =>
+            movie.title
+              .toLowerCase()
+              .includes(state.filters.search.toLowerCase())
+          )
+          .filter(movie => movie.available === state.filters.available)
+      }
+      // comprobar que si las movies filtradas no hay, le paso el flag de emptySearch
+      // para que salte el v-if del alert banner. Si hay al menos 1 peli, las paso.
       if (state.searchedMovies.length === 0) {
         state.filters.emptySearch = true
       } else {
-        state.filters.emptySearch = false
         return state.searchedMovies
       }
     },
@@ -33,58 +76,9 @@ const store = new Vuex.Store({
   mutations: {
     setAvailable(state, value) {
       state.filters.available = value
-
-      //si esta show all y el search es menor que 3, si no
-      if (state.filters.available === 1 && state.filters.search.length < 3) {
-        state.searchedMovies = state.movies
-
-        // si el search es menor q tres () y el show no es 1, aplica available si no
-      } else if (state.filters.search.length < 3) {
-        state.searchedMovies = state.movies.filter(
-          movie => movie.available === state.filters.available
-        )
-        // si no, es que entra el filtro del search combinado con el filtro del available
-        // si es 1 show all filtro barra busqueda nada mas, si no filtro busqueda y available
-      } else if (state.filters.available === 1) {
-        state.searchedMovies = state.movies.filter(movie =>
-          movie.title.toLowerCase().includes(state.filters.search.toLowerCase())
-        )
-      } else {
-        state.searchedMovies = state.movies
-          .filter(movie =>
-            movie.title
-              .toLowerCase()
-              .includes(state.filters.search.toLowerCase())
-          )
-          .filter(movie => movie.available === state.filters.available)
-      }
     },
     setSearchofMovies(state, value) {
       state.filters.search = value
-
-      if (state.filters.available === 1 && state.filters.search.length < 3) {
-        state.searchedMovies = state.movies
-      } else if (state.filters.search.length < 3) {
-        state.searchedMovies = state.movies.filter(
-          movie => movie.available === state.filters.available
-        )
-
-        // si no, es que entra el filtro del search combinado con el filtro del available
-        // si es 1 show all filtro barra busqueda nada mas, si no filtro busqueda y available
-      } else if (state.filters.available === 1) {
-        state.searchedMovies = state.movies.filter(movie =>
-          movie.title.toLowerCase().includes(state.filters.search.toLowerCase())
-        )
-      } else {
-        state.searchedMovies = state.movies
-          .filter(movie =>
-            movie.title
-              .toLowerCase()
-              .includes(state.filters.search.toLowerCase())
-          )
-          .filter(movie => movie.available === state.filters.available)
-      }
-      //
     }
   },
 

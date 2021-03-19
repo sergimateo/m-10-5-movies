@@ -17,7 +17,7 @@
         v-model="isAvailable"
         :value="true"
       />
-      <!-- checked="checked" -->
+
       <label for="radio1">Available</label>
       <input
         type="radio"
@@ -41,10 +41,6 @@ export default {
       },
       set(value) {
         this.$store.commit('setAvailable', value)
-        // this.$store.commit(
-        //   'setSearchofMovies',
-        //   this.$store.state.filters.search
-        // )
       }
     }
   }
