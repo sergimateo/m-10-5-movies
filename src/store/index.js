@@ -43,7 +43,7 @@ const store = new Vuex.Store({
           )
         }
         // si no, aplica el filtro available siempre.
-        // Y ponemos el filtro de search si lenght >= 3
+        // Y ponemos el filtro de search si length >= 3
       } else if (state.filters.search.length < 3) {
         //
         state.searchedMovies = state.movies.filter(
