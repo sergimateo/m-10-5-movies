@@ -82,6 +82,7 @@ const store = new Vuex.Store({
 
   actions: {},
   modules: {
+    //clean comments
     // modulo de movies store cancelado, me liaba...
     // moviesModule
   },
